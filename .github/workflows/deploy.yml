@@ -1,0 +1,23 @@
+name: Deploy Full Stack
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  backend:
+    uses: ./.github/workflows/backend.yml
+
+  frontend:
+    uses: ./.github/workflows/frontend.yml
+
+  deploy:
+    runs-on: self-hosted
+    needs: [backend, frontend]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy containers
+        run: docker compose up -d --build

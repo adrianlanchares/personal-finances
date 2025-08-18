@@ -1,0 +1,14 @@
+name: Build Backend
+
+on:
+  workflow_call:
+
+jobs:
+  backend:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build backend container
+        run: docker compose build backend
