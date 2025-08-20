@@ -4,17 +4,35 @@ on:
   push:
     branches:
       - main
-    paths:
-      - backend/**
-      - frontend/**
 
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      backend: ${{ steps.filter.outputs.backend }}
+      frontend: ${{ steps.filter.outputs.frontend }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Filter paths
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            backend:
+              - 'backend/**'
+            frontend:
+              - 'frontend/**'
+
   backend:
-    if: contains(join(github.event.head_commit.modified, ','), 'backend/')
+    needs: changes
+    if: needs.changes.outputs.backend == 'true'
     uses: ./.github/workflows/backend.yml
 
   frontend:
-    if: contains(join(github.event.head_commit.modified, ','), 'frontend/')
+    needs: changes
+    if: needs.changes.outputs.frontend == 'true'
     uses: ./.github/workflows/frontend.yml
 
   deploy:
@@ -35,7 +53,6 @@ jobs:
           DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }}
           DJANGO_DEBUG=True
           EOF
-
 
       - name: Deploy containers
         run: docker compose up -d --build
