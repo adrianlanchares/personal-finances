@@ -18,15 +18,6 @@ class CreateTransactionView(generics.CreateAPIView):
     serializer_class = serializers.TransactionSerializer
 
     def create(self, request, *args, **kwargs):
-<<<<<<< HEAD
-        # if datetime not in request, set to now
-        if "datetime" not in request.data:
-            return Response({request}, status=status.HTTP_400_BAD_REQUEST)
-            request.data["datetime"] = datetime.now(
-                tz=ZoneInfo("Europe/Madrid")
-            ).isoformat()
-=======
->>>>>>> parent of d5a6c9e (add custom create to handle non existing datetimes)
         return super().create(request, *args, **kwargs)
 
 
