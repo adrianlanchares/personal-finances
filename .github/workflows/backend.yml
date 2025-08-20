@@ -5,6 +5,7 @@ on:
 
 jobs:
   backend:
+    if: contains(github.event.paths, 'backend/')
     runs-on: self-hosted
     steps:
       - name: Checkout code
