@@ -7,4 +7,11 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
-CMD ["npm", "run", "build"]
+RUN npm run build
+
+# Stage 2: Serve with 'serve'
+FROM node:20-alpine
+WORKDIR /app
+COPY --from=build /app/build ./build
+RUN npm install -g serve
+CMD ["serve", "-s", "build", "-l", "3000"]
