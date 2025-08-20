@@ -41,7 +41,7 @@ class TransactionsView(generics.ListCreateAPIView):
         description = self.request.query_params.get("description", None)
         category = self.request.query_params.get("category", None)
         account = self.request.query_params.get("account", None)
-        cashflow = self.request.queryparams.get("cashflow", None)
+        cashflow = self.request.query_params.get("cashflow", None)
         datetime = self.request.query_params.get("datetime", None)
         skip = self.request.query_params.get("skip", None)
         limit = self.request.query_params.get("limit", None)
