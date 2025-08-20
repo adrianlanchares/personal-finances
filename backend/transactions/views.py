@@ -1,3 +1,5 @@
+from datetime import datetime
+from zoneinfo import ZoneInfo
 from django.shortcuts import render
 from rest_framework import generics, status
 from rest_framework.response import Response
@@ -18,6 +20,11 @@ class CreateTransactionView(generics.CreateAPIView):
     serializer_class = serializers.TransactionSerializer
 
     def create(self, request, *args, **kwargs):
+        # if datetime not in request, set to now
+        if "datetime" not in request.data:
+            request.data["datetime"] = datetime.now(
+                tz=ZoneInfo("Europe/Madrid")
+            ).isoformat()
         return super().create(request, *args, **kwargs)
 
 
