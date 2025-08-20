@@ -3,8 +3,8 @@ services:
     build: ./backend
     container_name: backend
     command: sh -c "python manage.py collectstatic --noinput"
-    expose:
-      - "8000"
+    ports:
+      - "8000:8000"
     env_file:
       - ./backend/.env
     restart: always
@@ -14,14 +14,7 @@ services:
       context: ./frontend
       target: frontend-dist
     container_name: frontend-dist
+    ports:
+      - "3000:3000"
     restart: always
 
-  nginx:
-    build: ./nginx
-    container_name: nginx
-    ports:
-      - "80:80"
-    depends_on:
-      - backend
-      - frontend
-    restart: always
