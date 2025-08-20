@@ -12,6 +12,6 @@ RUN npm run build
 # Stage 2: Serve with 'serve'
 FROM node:20-alpine
 WORKDIR /app
-COPY --from=build /app/build ./build
+COPY --from=build /app/dist ./dist
 RUN npm install -g serve
-CMD ["serve", "-s", "build", "-l", "3000"]
+CMD ["serve", "-s", "dist", "-l", "3000"]
