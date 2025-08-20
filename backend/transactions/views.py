@@ -67,3 +67,10 @@ class TransactionsView(generics.ListCreateAPIView):
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
+
+    def delete(self, request, *args, **kwargs):
+        # Delete all entries in the queryset
+        self.queryset.all().delete()
+        return Response(
+            {"detail": "All transactions deleted."}, status=status.HTTP_204_NO_CONTENT
+        )
