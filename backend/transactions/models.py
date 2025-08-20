@@ -15,7 +15,7 @@ class Transaction(models.Model):
     category = models.CharField(max_length=100)
     account = models.CharField(max_length=100)
     cashflow = models.CharField(max_length=100)
-    datetime = models.DateTimeField(auto_now_add=True)
+    datetime = models.DateTimeField()
 
     def __str__(self):
         return f"Transaction {self.id}: {self.description} - {self.amount}"
