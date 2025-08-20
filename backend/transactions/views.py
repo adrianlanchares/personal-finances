@@ -25,7 +25,7 @@ class TransactionView(generics.RetrieveUpdateDestroyAPIView):
     queryset = serializers.TransactionSerializer.Meta.model.objects.all()
     serializer_class = serializers.TransactionSerializer
 
-    def put(self, request, *args, **kwargs):
+    def patch(self, request, *args, **kwargs):
         return self.partial_update(request, *args, **kwargs)
 
     def delete(self, request, *args, **kwargs):
