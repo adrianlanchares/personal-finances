@@ -9,7 +9,7 @@ from rest_framework.permissions import (
 )
 from django.db.utils import IntegrityError
 from django.core.exceptions import ObjectDoesNotExist
-from backend.transactions import serializers
+from . import serializers
 
 
 # Create your views here.

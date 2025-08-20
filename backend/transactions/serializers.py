@@ -1,6 +1,6 @@
 import re
 from rest_framework import serializers, exceptions
-from backend.transactions import models
+from . import models
 
 
 # Create or update transaction serializer
