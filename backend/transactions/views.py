@@ -22,9 +22,7 @@ class CreateTransactionView(generics.CreateAPIView):
     def create(self, request, *args, **kwargs):
         # if datetime not in request, set to now
         if "datetime" not in request.data:
-            return Response(
-                {"detail": "Datetime is required."}, status=status.HTTP_400_BAD_REQUEST
-            )
+            return Response({request}, status=status.HTTP_400_BAD_REQUEST)
             request.data["datetime"] = datetime.now(
                 tz=ZoneInfo("Europe/Madrid")
             ).isoformat()
