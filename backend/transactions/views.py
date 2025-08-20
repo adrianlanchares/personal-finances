@@ -37,6 +37,8 @@ class TransactionsView(generics.ListCreateAPIView):
     serializer_class = serializers.TransactionSerializer
 
     def get_queryset(self):
+        queryset = self.queryset
+
         amount = self.request.query_params.get("amount", None)
         description = self.request.query_params.get("description", None)
         category = self.request.query_params.get("category", None)
