@@ -16,24 +16,9 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
-
-from backend.transactions import views
+from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    # List all transactions or create a new one
-    path("transactions/", views.TransactionsView.as_view(), name="transactions"),
-    # Create a transaction (alternative to posting to /transactions/)
-    path(
-        "transactions/create/",
-        views.CreateTransactionView.as_view(),
-        name="create-transaction",
-    ),
-    # Get, update, or delete a single transaction by ID
-    path(
-        "transactions/<int:pk>/",
-        views.TransactionView.as_view(),
-        name="transaction-detail",
-    ),
+    path("transactions/", include("transactions.urls")),  # include app routes
 ]
