@@ -5,8 +5,6 @@ on:
 
 jobs:
   frontend:
-    # Only run if the event contains changes to frontend folder
-    if: contains(github.event.paths, 'frontend/')
     runs-on: self-hosted
     steps:
       - name: Checkout code

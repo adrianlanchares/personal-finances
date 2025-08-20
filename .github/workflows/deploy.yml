@@ -4,12 +4,17 @@ on:
   push:
     branches:
       - main
+    paths:
+      - backend/**
+      - frontend/**
 
 jobs:
   backend:
+    if: contains(join(github.event.head_commit.modified, ','), 'backend/')
     uses: ./.github/workflows/backend.yml
 
   frontend:
+    if: contains(join(github.event.head_commit.modified, ','), 'frontend/')
     uses: ./.github/workflows/frontend.yml
 
   deploy:
