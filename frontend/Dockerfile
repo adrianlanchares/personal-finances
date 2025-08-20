@@ -7,13 +7,4 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
-RUN npm run build
-
-# Stage 2: export build artifacts
-FROM alpine:3.18 AS frontend-dist
-WORKDIR /dist
-COPY --from=build /app/dist .
-
-RUN npm install -g serve
-
-CMD ["serve", "-s", ".", "-l", "3000"]
+CMD ["npm", "run", "build"]
