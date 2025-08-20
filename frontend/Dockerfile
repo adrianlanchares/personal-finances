@@ -13,3 +13,7 @@ RUN npm run build
 FROM alpine:3.18 AS frontend-dist
 WORKDIR /dist
 COPY --from=build /app/dist .
+
+RUN npm install -g serve
+
+CMD ["serve", "-s", ".", "-l", "3000"]
