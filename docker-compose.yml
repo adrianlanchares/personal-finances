@@ -7,8 +7,13 @@ services:
       - "8000"
     env_file:
       - ./backend/.env
-    volumes:
-      - static_volume:/app/static  # share static files with nginx
+    restart: always
+
+  frontend:
+    build:
+      context: ./frontend
+      target: frontend-dist
+    container_name: frontend-dist
     restart: always
 
   nginx:
@@ -18,9 +23,5 @@ services:
       - "80:80"
     depends_on:
       - backend
-    volumes:
-      - static_volume:/usr/share/nginx/html/static  # mount same static volume
+      - frontend
     restart: always
-
-volumes:
-  static_volume:
