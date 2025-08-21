@@ -8,7 +8,6 @@ import PageError from './PageError.jsx'
 import './index.css'
 import { redirect, createBrowserRouter, RouterProvider } from "react-router-dom";
 
-
 const router = createBrowserRouter([{
   path: "/",
   element: <App/>,
