@@ -107,11 +107,6 @@ function CashflowFilter({cashflow, setCashflow}) {
   );
 }
 
-      </p>
-    </div>
-  );
-}
-
 
 function TransactionList({transactionList}) {
   return (<div>
