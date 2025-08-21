@@ -32,7 +32,7 @@ class TransactionView(generics.RetrieveUpdateDestroyAPIView):
         return self.destroy(request, *args, **kwargs)
 
 
-class TransactionsView(generics.ListCreateAPIView):
+class ListTransactionsView(generics.ListCreateAPIView):
     queryset = serializers.TransactionSerializer.Meta.model.objects.all()
     serializer_class = serializers.TransactionSerializer
 
