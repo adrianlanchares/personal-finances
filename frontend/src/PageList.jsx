@@ -175,7 +175,7 @@ function App() {
           setCurrentPage(Math.max(INITIAL_PAGE, currentPage - 1));
         }
         else {
-          setMovieList(data);
+          setTransactionList(data);
         }
       } catch (error) {
         console.error('Error while obtaining the list:', error);
