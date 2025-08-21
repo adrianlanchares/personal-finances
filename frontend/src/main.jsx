@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 // import PageGraphs from './PageGraphs.jsx'
 import PageList from './PageList.jsx'
+import PageTransaction from './PageTransaction.jsx'
 import PageError from './PageError.jsx'
 import './index.css'
 import { redirect, createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -19,7 +20,7 @@ const router = createBrowserRouter([{
     element: <PageList/>,
   }, {
     path: "transactions/:id",
-    element: <PageList/>,
+    element: <PageTransaction/>,
     errorElement: <PageError/>,
     loader: async ({ params }) => {
       return await fetch(`http://10.8.0.1:8000/transactions/${params.id}/`)
