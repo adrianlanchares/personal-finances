@@ -18,7 +18,7 @@ const router = createBrowserRouter([{
     element: <PageList/>,
   }, {
     path: "transactions/:id",
-    element: <PageMovie/>,
+    element: <PageList/>,
     errorElement: <PageError/>,
     loader: async ({ params }) => {
       return await fetch(`http://10.8.0.1:8000/transactions/${params.id}/`)
