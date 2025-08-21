@@ -124,7 +124,7 @@ function Transaction({transaction}) {
   );
 }
 
-function PageListContainer() {
+function App() {
   const [transactionList, setTransactionList] = useState([]);
   const [currentPage, setCurrentPage] = useState(INITIAL_PAGE);
   const [amount, setAmount] = useState('');
@@ -169,13 +169,13 @@ function PageListContainer() {
           throw new Error('Could not find the list');
         } 
         const data = await response.json();
-        // We have done this if - else to prevent having to load all the transactions
+        // We have done this if - else to prevent having to load all the movies
         // in order to know if we have reached the end of the list
         if (data.length === 0) {
           setCurrentPage(Math.max(INITIAL_PAGE, currentPage - 1));
         }
         else {
-          setTransactionList(data);
+          setMovieList(data);
         }
       } catch (error) {
         console.error('Error while obtaining the list:', error);
@@ -196,4 +196,4 @@ function PageListContainer() {
   )
 }
 
-export default PageListContainer;
+export default App
