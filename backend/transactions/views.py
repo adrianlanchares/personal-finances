@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics, status
+from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import (
     BasePermission,
@@ -8,6 +9,7 @@ from rest_framework.permissions import (
     IsAuthenticated,
 )
 from django.db.utils import IntegrityError
+from django.db.models import Sum, Case, When, F
 from django.core.exceptions import ObjectDoesNotExist
 from . import serializers
 
@@ -71,8 +73,25 @@ class ListTransactionsView(generics.ListCreateAPIView):
         return self.list(request, *args, **kwargs)
 
     def delete(self, request, *args, **kwargs):
-        # Delete all entries in the queryset
         self.queryset.all().delete()
         return Response(
             {"detail": "All transactions deleted."}, status=status.HTTP_204_NO_CONTENT
         )
+
+
+class AccountBalancesView(APIView):
+    queryset = serializers.TransactionSerializer.Meta.model.objects.all()
+    serializer_class = serializers.TransactionSerializer
+
+    def get(self, request):
+        Model = self.serializer_class.Meta.model
+        balances = Model.objects.values("account").annotate(
+            balance=Sum(
+                Case(
+                    When(cashflow="income", then=F("amount")),
+                    When(cashflow="expense", then=-F("amount")),
+                )
+            )
+        )
+
+        return Response({b["account"]: b["balance"] for b in balances})
