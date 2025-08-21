@@ -9,7 +9,6 @@ export default function PageTransaction() {
   return (
     <div className="container">
       <div className="movie-details" id="movieDetails">
-        <img src={transaction.image_url} alt="image_url" id="image_url"/>
         <div className="info">
           <h2>{transaction.title}</h2>
           <p>{transaction.description}</p>
