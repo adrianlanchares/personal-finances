@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import PageGraphs from './PageGraphs.jsx'
+// import PageGraphs from './PageGraphs.jsx'
 import PageList from './PageList.jsx'
 import './index.css'
 import { redirect, createBrowserRouter, RouterProvider } from "react-router-dom";
