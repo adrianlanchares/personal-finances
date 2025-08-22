@@ -135,7 +135,7 @@ function Transaction({ transaction }) {
         backgroundColor: bgColor,
       }}
     >
-      <span style={{ fontWeight: "bold" }}>{transaction.description}</span>
+      <span style={{ width: 200, fontWeight: "bold" }}>{transaction.description}</span>
       <span>{transaction.amount} €</span>
       <span>
         {new Date(transaction.datetime).toLocaleString("en-GB", {
