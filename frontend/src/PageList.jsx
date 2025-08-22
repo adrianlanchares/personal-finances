@@ -122,11 +122,9 @@ function TransactionList({transactionList}) {
 function Transaction({transaction}) {
   return (
     <div className="transaction-details" id="transactionDetails">
-      <img src={transaction.image_url} alt="Thumbnail" id="thumbnail"/>
       <div className="info">
-        <h3>{transaction.title}</h3>
-        <p><strong>Amount:</strong> <span>{transaction.amount}</span></p>
-        <p><strong>Description:</strong> <span>{transaction.description}</span></p>
+        <h3>{transaction.description}</h3>
+        <p><strong>Amount:</strong> <span>{transaction.amount} €</span></p>
         <p><strong>Category:</strong> <span>{transaction.category}</span></p>
         <p><strong>Account:</strong> <span>{transaction.account}</span></p>
         <p><strong>Cashflow:</strong> <span>{transaction.cashflow}</span></p>
