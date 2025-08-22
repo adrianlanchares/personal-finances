@@ -39,7 +39,7 @@ class ListTransactionsView(generics.ListCreateAPIView):
     serializer_class = serializers.TransactionSerializer
 
     def get_queryset(self):
-        queryset = self.queryset.all()
+        queryset = self.queryset.all().order_by("-datetime")
 
         amount = self.request.query_params.get("amount", None)
         description = self.request.query_params.get("description", None)
