@@ -128,6 +128,18 @@ function Transaction({transaction}) {
         <p><strong>Category:</strong> <span>{transaction.category}</span></p>
         <p><strong>Account:</strong> <span>{transaction.account}</span></p>
         <p><strong>Cashflow:</strong> <span>{transaction.cashflow}</span></p>
+        <p>
+          <strong>Date:</strong>{" "}
+          <span>
+            {new Date(transaction.datetime).toLocaleString("en-GB", {
+              day: "2-digit",
+              month: "2-digit",
+              year: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+            }).replace(",", " @")}
+          </span>
+        </p>
       </div>
     </div>
   );

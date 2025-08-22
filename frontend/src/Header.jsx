@@ -20,13 +20,13 @@ export default function Header() {
             <div>
                 <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
                     <div style={{backgroundColor: '#FA8970', padding: '1rem', borderRadius: '8px', paddingTop: '0px', paddingBottom: '0px' }}>
-                        <h2>Tarjeta: {balances.tarjeta}€</h2>
+                        <h2>Tarjeta: {balances.tarjeta} €</h2>
                     </div>
                     <div style={{backgroundColor: '#76C869', padding: '1rem', borderRadius: '8px', paddingTop: '0px', paddingBottom: '0px' }}>
-                        <h2>Efectivo: {balances.efectivo}€</h2>
+                        <h2>Efectivo: {balances.efectivo} €</h2>
                     </div>
                     <div style={{backgroundColor: '#6CA9F9', padding: '1rem', borderRadius: '8px', paddingTop: '0px', paddingBottom: '0px' }}>
-                        <h2>Ahorros: {balances.ahorros}€</h2>
+                        <h2>Ahorros: {balances.ahorros} €</h2>
                     </div>
                 </div>
             </div>
