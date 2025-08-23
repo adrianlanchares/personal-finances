@@ -1,14 +1,22 @@
 import { DateRangeCalendar } from '@mui/x-date-pickers-pro';
-import { Select } from '@mui/material';
+import { Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 
 export function DateFilter({ date, setDate }) {
     return (
-        <Select value={date} label={{name: 'Date'}} onChange={(e) => setDate(e.target.value)}>
-            <option value={"all"}>All</option>
-            <option value={"year"}>Last Year</option>
-            <option value={"month"}>Last Month</option>
-            <option value={"week"}>Last Week</option>
-        </Select>
+        <FormControl fullWidth>
+            <InputLabel>Date</InputLabel>
+            <Select
+                defaultValue="all"
+                value={date}
+                label="Date"
+                onChange={(e) => setDate(e.target.value)}
+            >
+                <MenuItem value="all">All</MenuItem>
+                <MenuItem value="year">Last Year</MenuItem>
+                <MenuItem value="month">Last Month</MenuItem>
+                <MenuItem value="week">Last Week</MenuItem>
+            </Select>
+            </FormControl>
     );
 }
 
