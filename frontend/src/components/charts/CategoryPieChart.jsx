@@ -29,6 +29,7 @@ export default function CategoryPieChart({ transactions }) {
         cy="50%"
         outerRadius={150}
         label
+        isAnimationActive={false}
       >
         {data.map((entry, index) => (
           <Cell
