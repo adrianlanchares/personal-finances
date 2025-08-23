@@ -55,7 +55,10 @@ function Filters({ filters, setFilters }) {
       <div className="filters">
         <MinAmountFilter amount={minAmount} setAmount={setMinAmount}/>
         <MaxAmountFilter amount={maxAmount} setAmount={setMaxAmount}/>
-        
+        <DescriptionFilter description={description} setDescription={setDescription}/>
+        <CategoryFilter category={category} setCategory={setCategory}/>
+        <AccountFilter account={account} setAccount={setAccount}/>
+        <CashflowFilter cashflow={cashflow} setCashflow={setCashflow}/>
         <DateFilter date={date} setDate={setDate}/>
       </div>
     </div>
