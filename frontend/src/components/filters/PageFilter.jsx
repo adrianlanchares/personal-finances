@@ -1,3 +1,5 @@
+const INITIAL_PAGE = 1;
+
 export default function PageFilter({currentPage, setCurrentPage}) {
   function changePage(page) {
     page = Math.max(INITIAL_PAGE, page);
