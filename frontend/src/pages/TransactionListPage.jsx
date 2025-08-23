@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import {IconButton, Tooltip} from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
+import FilterListIcon from '@mui/icons-material/FilterList';
 
 {/* Filter Imports */}
 import { MinAmountFilter, MaxAmountFilter } from '../components/filters/AmountFilters.jsx';
@@ -29,7 +29,7 @@ function TransactionListPage({ transactionList, currentPage, setCurrentPage, fil
           onClick={() => setShowFilters(prev => !prev)}
           sx={{ mb: 2 }}
         >
-          <SearchIcon />
+          <FilterListIcon />
         </IconButton>
       </Tooltip>
 
