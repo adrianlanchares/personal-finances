@@ -10,6 +10,7 @@ import AccountFilter from '../components/filters/AccountFilter.jsx';
 import CashflowFilter from '../components/filters/CashflowFilter.jsx';
 import PageFilter from '../components/filters/PageFilter.jsx';
 
+const INITIAL_PAGE = 1;
 const TRANSACTIONS_PER_PAGE = 10;
 
 
