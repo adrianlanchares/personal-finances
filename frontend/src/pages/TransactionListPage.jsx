@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 import {IconButton, Tooltip} from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
+import {AmountFilter, DescriptionFilter, CategoryFilter, AccountFilter, CashflowFilter} from '../components/filters.jsx'
+
 const INITIAL_PAGE = 1;
 const TRANSACTIONS_PER_PAGE = 10;
 
@@ -52,79 +54,6 @@ function Filters({ filters, setFilters }) {
       </div>
     </div>
   </>);
-}
-
-
-function PageFilter({currentPage, setCurrentPage}) {
-  function changePage(page) {
-    page = Math.max(INITIAL_PAGE, page);
-    setCurrentPage(page);
-  }
-  return (
-    <div className="PageFilter">
-      <button onClick={() => changePage(currentPage - 1)} disabled={currentPage===INITIAL_PAGE}>&lt;</button>
-      <p>{currentPage}</p>
-      {/* <input type="number" value={currentPage} onChange={(e) => changePage(e.target.value)}/> */}
-      <button onClick={() => changePage(currentPage + 1)}>&gt;</button>
-    </div>
-  );
-}
-
-function AmountFilter({amount, setAmount}) {
-  return (
-    <div className="AmountFilter">
-      <p>
-        <strong>Amount<br/></strong>
-        <input type="number" value={amount} onChange={e => setAmount(Math.max(0, e.target.value))} placeholder="Amount"/>
-      </p>
-    </div>
-  );
-}
-
-
-function DescriptionFilter({description, setDescription}) {
-  return (
-    <div className="DescriptionFilter">
-      <p>
-        <strong>Description<br/></strong>
-        <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description"/>
-      </p>
-    </div>
-  );
-}
-
-function CategoryFilter({category, setCategory}) {
-  return (
-    <div className="CategoryFilter">
-      <p>
-        <strong>Category<br/></strong>
-        <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} placeholder="Category"/>
-      </p>
-    </div>
-  );
-}
-
-
-function AccountFilter({account, setAccount}) {
-  return (
-    <div className="AccountFilter">
-      <p>
-        <strong>Account<br/></strong>
-        <input type="text" value={account} onChange={(e) => setAccount(e.target.value)} placeholder="Account"/>
-      </p>
-    </div>
-  );
-}
-
-function CashflowFilter({cashflow, setCashflow}) {
-  return (
-    <div className="CashflowFilter">
-      <p>
-        <strong>Cashflow<br/></strong>
-        <input type="text" value={cashflow} onChange={(e) => setCashflow(e.target.value)} placeholder="Cashflow"/>
-      </p>
-    </div>
-  );
 }
 
 
