@@ -1,4 +1,4 @@
-function CashflowFilter({cashflow, setCashflow}) {
+export default function CashflowFilter({cashflow, setCashflow}) {
   return (
     <div className="CashflowFilter">
       <p>

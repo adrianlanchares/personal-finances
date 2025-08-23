@@ -1,4 +1,4 @@
-function AmountFilter({amount, setAmount}) {
+export default function AmountFilter({amount, setAmount}) {
   return (
     <div className="AmountFilter">
       <p>

@@ -1,4 +1,4 @@
-function DescriptionFilter({description, setDescription}) {
+export default function DescriptionFilter({description, setDescription}) {
   return (
     <div className="DescriptionFilter">
       <p>

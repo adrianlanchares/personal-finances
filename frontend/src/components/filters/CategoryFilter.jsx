@@ -1,4 +1,4 @@
-function CategoryFilter({category, setCategory}) {
+export default function CategoryFilter({category, setCategory}) {
   return (
     <div className="CategoryFilter">
       <p>

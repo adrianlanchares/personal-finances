@@ -1,4 +1,4 @@
-function AccountFilter({account, setAccount}) {
+export default function AccountFilter({account, setAccount}) {
   return (
     <div className="AccountFilter">
       <p>
