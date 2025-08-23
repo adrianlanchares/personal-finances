@@ -1,4 +1,4 @@
-import CategoryPieChart from "../components/CategoryPieChart.jsx";
+import CategoryPieChart from "../components/charts/CategoryPieChart.jsx";
 
 export default function ChartsPage(){
     const [transactionList, setTransactionList] = React.useState([]);
