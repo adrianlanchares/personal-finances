@@ -41,17 +41,21 @@ class ListTransactionsView(generics.ListCreateAPIView):
     def get_queryset(self):
         queryset = self.queryset.all().order_by("-datetime")
 
-        amount = self.request.query_params.get("amount", None)
+        minAmount = self.request.query_params.get("minAmount", None)
+        maxAmount = self.request.query_params.get("maxAmount", None)
         description = self.request.query_params.get("description", None)
         category = self.request.query_params.get("category", None)
         account = self.request.query_params.get("account", None)
         cashflow = self.request.query_params.get("cashflow", None)
-        datetime = self.request.query_params.get("datetime", None)
+        beforeDatetime = self.request.query_params.get("beforeDatetime", None)
+        afterDatetime = self.request.query_params.get("afterDatetime", None)
         skip = self.request.query_params.get("skip", None)
         limit = self.request.query_params.get("limit", None)
 
-        if amount:
-            queryset = queryset.filter(amount__icontains=amount)
+        if minAmount:
+            queryset = queryset.filter(amount__gte=minAmount)
+        if maxAmount:
+            queryset = queryset.filter(amount__lte=maxAmount)
         if description:
             queryset = queryset.filter(description__icontains=description)
         if category:
@@ -60,8 +64,10 @@ class ListTransactionsView(generics.ListCreateAPIView):
             queryset = queryset.filter(account__icontains=account)
         if cashflow:
             queryset = queryset.filter(cashflow__icontains=cashflow)
-        if datetime:
-            queryset = queryset.filter(datetime__icontains=datetime)
+        if beforeDatetime:
+            queryset = queryset.filter(datetime__lt=beforeDatetime)
+        if afterDatetime:
+            queryset = queryset.filter(datetime__gt=afterDatetime)
         if skip:
             queryset = queryset[int(skip) :]
         if limit:
