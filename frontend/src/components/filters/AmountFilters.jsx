@@ -1,4 +1,4 @@
-export default function MinAmountFilter({amount, setAmount}) {
+export function MinAmountFilter({amount, setAmount}) {
   return (
     <div className="MinAmountFilter">
       <p>
