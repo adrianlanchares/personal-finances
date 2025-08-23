@@ -3,12 +3,14 @@ import { NavLink } from 'react-router-dom';
 import {IconButton, Tooltip} from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
+{/* Filter Imports */}
 import { MinAmountFilter, MaxAmountFilter } from '../components/filters/AmountFilters.jsx';
 import DescriptionFilter from '../components/filters/DescriptionFilter.jsx';
 import CategoryFilter from '../components/filters/CategoryFilter.jsx';
 import AccountFilter from '../components/filters/AccountFilter.jsx';
 import CashflowFilter from '../components/filters/CashflowFilter.jsx';
 import PageFilter from '../components/filters/PageFilter.jsx';
+import {DateFilter, DateRangeFilter} from '../components/filters/DateFilters.jsx';
 
 const INITIAL_PAGE = 1;
 const TRANSACTIONS_PER_PAGE = 10;
