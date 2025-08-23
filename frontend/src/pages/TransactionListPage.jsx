@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import {IconButton, Tooltip} from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
-import AmountFilter from '../components/filters/AmountFilter.jsx';
+import { MinAmountFilter, MaxAmountFilter } from '../components/filters/AmountFilters.jsx';
 import DescriptionFilter from '../components/filters/DescriptionFilter.jsx';
 import CategoryFilter from '../components/filters/CategoryFilter.jsx';
 import AccountFilter from '../components/filters/AccountFilter.jsx';
@@ -45,13 +45,14 @@ function TransactionListPage({ transactionList, currentPage, setCurrentPage, fil
 }
 
 function Filters({ filters, setFilters }) {
-  const {amount, description, category, account, cashflow} = filters;
-  const {setAmount, setDescription, setCategory, setAccount, setCashflow} = setFilters;
+  const {minAmount, maxAmount, description, category, account, cashflow} = filters;
+  const {setMinAmount, setMaxAmount, setDescription, setCategory, setAccount, setCashflow} = setFilters;
   return (<>
     <div className = "filters-container">
       <h3 id="filters">Filters</h3>
       <div className="filters">
-        <AmountFilter amount={amount} setAmount={setAmount}/>
+        <MinAmountFilter amount={minAmount} setAmount={setMinAmount}/>
+        <MaxAmountFilter amount={maxAmount} setAmount={setMaxAmount}/>
         <DescriptionFilter description={description} setDescription={setDescription}/>
         <CategoryFilter category={category} setCategory={setCategory}/>
         <AccountFilter account={account} setAccount={setAccount}/>
@@ -108,20 +109,23 @@ function Transaction({ transaction }) {
 function App() {
   const [transactionList, setTransactionList] = useState([]);
   const [currentPage, setCurrentPage] = useState(INITIAL_PAGE);
-  const [amount, setAmount] = useState('');
+  const [minAmount, setMinAmount] = useState('');
+  const [maxAmount, setMaxAmount] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [account, setAccount] = useState('');
   const [cashflow, setCashflow] = useState('');
   const filters = {
-    amount: amount,
+    minAmount: minAmount,
+    maxAmount: maxAmount,
     description: description,
     category: category,
     account: account,
     cashflow: cashflow
   }
   const setFilters = {
-    setAmount: setAmount,
+    setMinAmount: setMinAmount,
+    setMaxAmount: setMaxAmount,
     setDescription: setDescription,
     setCategory: setCategory,
     setAccount: setAccount,
@@ -135,7 +139,8 @@ function App() {
         // Content type application json
         const url = new URL(`http://10.8.0.1:8000/transactions/`)
         const params = new URLSearchParams();
-        if (amount) params.append('amount', amount);
+        if (minAmount) params.append('minAmount', minAmount);
+        if (maxAmount) params.append('maxAmount', maxAmount);
         if (description) params.append('description', description);
         if (category) params.append('category', category);
         if (account) params.append('account', account);
@@ -164,7 +169,7 @@ function App() {
     };
 
     fetchTransactions();
-  }, [currentPage, amount, description, category, account, cashflow]);
+  }, [currentPage, minAmount, maxAmount, description, category, account, cashflow]);
 
   return (
       <TransactionListPage
