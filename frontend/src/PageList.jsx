@@ -1,20 +1,40 @@
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import {IconButton, Tooltip} from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 
 const INITIAL_PAGE = 1;
 const TRANSACTIONS_PER_PAGE = 10;
 
 
-function PageList({transactionList, currentPage, setCurrentPage, filters, setFilters}) {
-  return (<div className="container">
-    <h2>Transactions</h2>
-    <Filters
-      filters={filters}
-      setFilters={setFilters}
-    />
-    <TransactionList transactionList={transactionList}/>
-    <PageFilter currentPage={currentPage} setCurrentPage={setCurrentPage}/>
-  </div>);
+function PageList({ transactionList, currentPage, setCurrentPage, filters, setFilters }) {
+  const [showFilters, setShowFilters] = useState(false);
+
+  return (
+    <div className="container">
+      <h2>Transaction list</h2>
+
+      <Tooltip title={showFilters ? "Hide Filters" : "Show Filters"}>
+        <IconButton
+          color={showFilters ? "primary" : "default"}
+          onClick={() => setShowFilters(prev => !prev)}
+          sx={{ mb: 2 }}
+        >
+          <SearchIcon />
+        </IconButton>
+      </Tooltip>
+
+      {showFilters && (
+        <Filters
+          filters={filters}
+          setFilters={setFilters}
+        />
+      )}
+
+      <TransactionList transactionList={transactionList} />
+      <PageFilter currentPage={currentPage} setCurrentPage={setCurrentPage} />
+    </div>
+  );
 }
 
 function Filters({ filters, setFilters }) {
