@@ -1,5 +1,5 @@
 from datetime import timedelta
-from time import timezone
+from django.utils import timezone
 from django.shortcuts import render
 from rest_framework import generics, status
 from rest_framework.views import APIView
