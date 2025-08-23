@@ -1,5 +1,6 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { Button } from '@mui/material'
 
 export default function Header() {
 
@@ -30,6 +31,10 @@ export default function Header() {
                     </div>
                 </div>
             </div>
+            <nav className="site-nav">
+                <Button href="/list" variant="contained" style={{ margin: '0 10px' }}>Ver Transacciones</Button>
+                <Button href="/charts" variant="contained" style={{ margin: '0 10px' }}>Gráficos</Button>
+            </nav>
         </header>
     );
 }

@@ -10,9 +10,15 @@ header {
 }
 
 .page {
-  padding-top: 64px;       /* = header height */
+  padding-top: 100px;       /* = header height */
   height: 100vh;
   overflow-y: auto;        /* scroll the content, not the header */
+}
+
+.site-nav {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
 }
 
 /* .site-header {
