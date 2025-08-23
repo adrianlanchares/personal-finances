@@ -9,7 +9,7 @@ export default function CategoryPieChart({ transactions }) {
   const data = useMemo(() => {
     const totals = {};
     transactions.forEach((t) => {
-      if (t.cashflow === "expense") {
+      if (t.cashflow === "expense" && t.account !== "ahorros") {
         totals[t.category] = (totals[t.category] || 0) + Number(t.amount);
       }
     });
@@ -20,7 +20,7 @@ export default function CategoryPieChart({ transactions }) {
   }, [transactions]);
 
   return (
-    <PieChart width={400} height={400}>
+    <PieChart width={500} height={500}>
       <Pie
         data={data}
         dataKey="value"
