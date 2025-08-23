@@ -1,3 +1,5 @@
+from datetime import timedelta
+from time import timezone
 from django.shortcuts import render
 from rest_framework import generics, status
 from rest_framework.views import APIView
@@ -47,6 +49,7 @@ class ListTransactionsView(generics.ListCreateAPIView):
         category = self.request.query_params.get("category", None)
         account = self.request.query_params.get("account", None)
         cashflow = self.request.query_params.get("cashflow", None)
+        date = self.request.query_params.get("date", None)
         beforeDatetime = self.request.query_params.get("beforeDatetime", None)
         afterDatetime = self.request.query_params.get("afterDatetime", None)
         skip = self.request.query_params.get("skip", None)
@@ -64,6 +67,21 @@ class ListTransactionsView(generics.ListCreateAPIView):
             queryset = queryset.filter(account__icontains=account)
         if cashflow:
             queryset = queryset.filter(cashflow__icontains=cashflow)
+        if date:
+            if date == "all":
+                pass
+            elif date == "year":
+                queryset = queryset.filter(
+                    datetime__gte=timezone.now() - timedelta(days=365)
+                )
+            elif date == "month":
+                queryset = queryset.filter(
+                    datetime__gte=timezone.now() - timedelta(days=30)
+                )
+            elif date == "week":
+                queryset = queryset.filter(
+                    datetime__gte=timezone.now() - timedelta(days=7)
+                )
         if beforeDatetime:
             queryset = queryset.filter(datetime__lt=beforeDatetime)
         if afterDatetime:
