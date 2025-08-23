@@ -5,7 +5,7 @@ import ChartsPage from './pages/ChartsPage.jsx'
 import TransactionListPage from './pages/TransactionListPage.jsx'
 import TransactionDetailsPage from './pages/TransactionDetailsPage.jsx'
 import ErrorPage from './pages/ErrorPage.jsx'
-import './index.css'
+import './styles/index.css'
 import { redirect, createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([{
