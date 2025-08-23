@@ -47,8 +47,8 @@ function TransactionListPage({ transactionList, currentPage, setCurrentPage, fil
 }
 
 function Filters({ filters, setFilters }) {
-  const {minAmount, maxAmount, description, category, account, cashflow} = filters;
-  const {setMinAmount, setMaxAmount, setDescription, setCategory, setAccount, setCashflow} = setFilters;
+  const {minAmount, maxAmount, description, category, account, cashflow, date} = filters;
+  const {setMinAmount, setMaxAmount, setDescription, setCategory, setAccount, setCashflow, setDate} = setFilters;
   return (<>
     <div className = "filters-container">
       <h3 id="filters">Filters</h3>
@@ -59,6 +59,7 @@ function Filters({ filters, setFilters }) {
         <CategoryFilter category={category} setCategory={setCategory}/>
         <AccountFilter account={account} setAccount={setAccount}/>
         <CashflowFilter cashflow={cashflow} setCashflow={setCashflow}/>
+        <DateFilter date={date} setDate={setDate}/>
       </div>
     </div>
   </>);
@@ -117,13 +118,16 @@ function App() {
   const [category, setCategory] = useState('');
   const [account, setAccount] = useState('');
   const [cashflow, setCashflow] = useState('');
+  const [date, setDate] = useState('');
+
   const filters = {
     minAmount: minAmount,
     maxAmount: maxAmount,
     description: description,
     category: category,
     account: account,
-    cashflow: cashflow
+    cashflow: cashflow,
+    date: date
   }
   const setFilters = {
     setMinAmount: setMinAmount,
@@ -131,7 +135,8 @@ function App() {
     setDescription: setDescription,
     setCategory: setCategory,
     setAccount: setAccount,
-    setCashflow: setCashflow
+    setCashflow: setCashflow,
+    setDate: setDate
   }
 
   useEffect(() => {
@@ -147,6 +152,7 @@ function App() {
         if (category) params.append('category', category);
         if (account) params.append('account', account);
         if (cashflow) params.append('cashflow', cashflow);
+        if (date) params.append('date', date);
         params.append('limit', TRANSACTIONS_PER_PAGE);
         params.append('skip', skip);
         
