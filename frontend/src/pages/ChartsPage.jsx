@@ -14,7 +14,7 @@ export default function ChartsPage(){
     }, []);
 
     return (
-        <div>
+        <div className='container'>
             <h1>Transaction Charts</h1>
             <CategoryPieChart transactions={transactionList} />
         </div>
