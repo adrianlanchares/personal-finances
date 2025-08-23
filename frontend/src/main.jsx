@@ -2,9 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 // import PageGraphs from './PageGraphs.jsx'
-import PageList from './pages/PageList.jsx'
-import PageTransaction from './pages/PageTransaction.jsx'
-import PageError from './pages/PageError.jsx'
+import PageList from './pages/TransactionListPage.jsx'
+import PageTransaction from './pages/TransactionDetailsPage.jsx'
+import PageError from './pages/ErrorPage.jsx'
 import './index.css'
 import { redirect, createBrowserRouter, RouterProvider } from "react-router-dom";
 
