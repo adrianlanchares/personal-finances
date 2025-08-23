@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useLoaderData } from "react-router-dom";
 
-export default function PageTransaction() {
+export default function TransactionDetailsPage() {
   const transaction = useLoaderData();
 
   

@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-// import PageGraphs from './PageGraphs.jsx'
-import PageList from './pages/TransactionListPage.jsx'
-import PageTransaction from './pages/TransactionDetailsPage.jsx'
-import PageError from './pages/ErrorPage.jsx'
+import ChartsPage from './pages/ChartsPage.jsx'
+import TransactionListPage from './pages/TransactionListPage.jsx'
+import TransactionDetailsPage from './pages/TransactionDetailsPage.jsx'
+import ErrorPage from './pages/ErrorPage.jsx'
 import './index.css'
 import { redirect, createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -13,14 +13,14 @@ const router = createBrowserRouter([{
   element: <App/>,
   children: [{
     path: "",
-    element: <PageList/>,
+    element: <ChartsPage/>,
   }, {
     path: "list",
-    element: <PageList/>,
+    element: <TransactionListPage/>,
   }, {
     path: "transactions/:id",
-    element: <PageTransaction/>,
-    errorElement: <PageError/>,
+    element: <TransactionDetailsPage/>,
+    errorElement: <ErrorPage/>,
     loader: async ({ params }) => {
       return await fetch(`http://10.8.0.1:8000/transactions/${params.id}/`)
     },

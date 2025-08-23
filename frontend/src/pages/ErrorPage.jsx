@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function PageError() {
+export default function ErrorPage() {
   return (
     <div>
       <h1>Error</h1>

@@ -7,7 +7,7 @@ const INITIAL_PAGE = 1;
 const TRANSACTIONS_PER_PAGE = 10;
 
 
-function PageList({ transactionList, currentPage, setCurrentPage, filters, setFilters }) {
+function TransactionListPage({ transactionList, currentPage, setCurrentPage, filters, setFilters }) {
   const [showFilters, setShowFilters] = useState(false);
 
   return (
@@ -233,7 +233,7 @@ function App() {
   }, [currentPage, amount, description, category, account, cashflow]);
 
   return (
-      <PageList
+      <TransactionListPage
         transactionList={transactionList}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
