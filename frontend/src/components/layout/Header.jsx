@@ -32,8 +32,8 @@ export default function Header() {
                 </div>
             </div>
             <nav className="site-nav">
-                <Button href="/list" variant="contained" style={{ margin: '0 10px' }}>Ver Transacciones</Button>
                 <Button href="/charts" variant="contained" style={{ margin: '0 10px' }}>Gráficos</Button>
+                <Button href="/list" variant="contained" style={{ margin: '0 10px' }}>Ver Transacciones</Button>
             </nav>
         </header>
     );
