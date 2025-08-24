@@ -1,10 +1,20 @@
-export default function AccountFilter({account, setAccount}) {
+import { Select, MenuItem, FormControl, InputLabel } from "@mui/material";
+
+export function AccountFilter({ account, setAccount }) {
   return (
-    <div className="AccountFilter">
-      <p>
-        <strong>Account<br/></strong>
-        <input type="text" value={account} onChange={(e) => setAccount(e.target.value)} placeholder="Account"/>
-      </p>
-    </div>
+    <FormControl fullWidth>
+      <InputLabel>Account</InputLabel>
+      <Select
+        defaultValue="all"
+        value={account}
+        label="Account"
+        onChange={(e) => setAccount(e.target.value)}
+      >
+        <MenuItem value="">All</MenuItem>
+        <MenuItem value="tarjeta">Tarjeta</MenuItem>
+        <MenuItem value="efectivo">Efectivo</MenuItem>
+        <MenuItem value="ahorros">Ahorros</MenuItem>
+      </Select>
+    </FormControl>
   );
 }
