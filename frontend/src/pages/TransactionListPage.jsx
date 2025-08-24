@@ -47,8 +47,8 @@ function TransactionListPage({ transactionList, currentPage, setCurrentPage, fil
 }
 
 function Filters({ filters, setFilters }) {
-  const {minAmount, maxAmount, description, category, account, cashflow, date} = filters;
-  const {setMinAmount, setMaxAmount, setDescription, setCategory, setAccount, setCashflow, setDate} = setFilters;
+  const {minAmount, maxAmount, description, category, account, cashflow, date, startDate, endDate} = filters;
+  const {setMinAmount, setMaxAmount, setDescription, setCategory, setAccount, setCashflow, setDate, setStartDate, setEndDate} = setFilters;
   return (<>
     <div className = "filters-container">
       <h3 id="filters">Filters</h3>
@@ -62,6 +62,12 @@ function Filters({ filters, setFilters }) {
         <AccountFilter account={account} setAccount={setAccount}/>
         <CashflowFilter cashflow={cashflow} setCashflow={setCashflow}/>
         <DateFilter date={date} setDate={setDate}/>
+        <DateRangeFilter 
+          startDate={startDate} 
+          endDate={endDate} 
+          setStartDate={setStartDate}  
+          setEndDate={setEndDate}
+        />
       </div>
     </div>
   </>);
@@ -121,6 +127,8 @@ function App() {
   const [account, setAccount] = useState('');
   const [cashflow, setCashflow] = useState('');
   const [date, setDate] = useState('');
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
 
   const filters = {
     minAmount: minAmount,
@@ -129,7 +137,9 @@ function App() {
     category: category,
     account: account,
     cashflow: cashflow,
-    date: date
+    date: date,
+    startDate: startDate,
+    endDate: endDate
   }
   const setFilters = {
     setMinAmount: setMinAmount,
@@ -138,7 +148,9 @@ function App() {
     setCategory: setCategory,
     setAccount: setAccount,
     setCashflow: setCashflow,
-    setDate: setDate
+    setDate: setDate,
+    setStartDate: setStartDate,
+    setEndDate: setEndDate
   }
 
   useEffect(() => {
@@ -179,7 +191,7 @@ function App() {
     };
 
     fetchTransactions();
-  }, [currentPage, minAmount, maxAmount, description, category, account, cashflow, date]);
+  }, [currentPage, minAmount, maxAmount, description, category, account, cashflow, date, startDate, endDate]);
 
   return (
       <TransactionListPage
