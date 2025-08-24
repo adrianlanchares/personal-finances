@@ -146,7 +146,7 @@ function Transaction({ transaction }) {
   );
 }
 
-function App() {
+export default function App() {
   const [transactionList, setTransactionList] = useState([]);
   const [currentPage, setCurrentPage] = useState(INITIAL_PAGE);
   const [minAmount, setMinAmount] = useState("");
@@ -200,8 +200,7 @@ function App() {
           throw new Error("Could not find the list");
         }
         const data = await response.json();
-        // We have done this if - else to prevent having to load all the movies
-        // in order to know if we have reached the end of the list
+
         if (data.length === 0) {
           setCurrentPage(Math.max(INITIAL_PAGE, currentPage - 1));
         } else {
@@ -234,5 +233,3 @@ function App() {
     />
   );
 }
-
-export default App;
