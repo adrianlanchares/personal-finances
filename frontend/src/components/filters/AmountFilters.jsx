@@ -1,23 +1,28 @@
 import { useState } from "react";
+import { TextField } from "@mui/material";
 
-export function MinAmountFilter({minAmount, setMinAmount}) {
+export function MinAmountFilter({ minAmount, setMinAmount }) {
   return (
     <div className="MinAmountFilter">
-      <p>
-        <strong>Min Amount<br/></strong>
-        <input type="number" value={minAmount} onChange={e => setMinAmount(Math.max(0, Number(e.target.value)))} placeholder="Min Amount"/>
-      </p>
+      <TextField
+        type="number"
+        value={minAmount}
+        onChange={(e) => setMinAmount(Math.max(0, Number(e.target.value)))}
+        label="Min Amount"
+      />
     </div>
   );
 }
 
-export function MaxAmountFilter({maxAmount, setMaxAmount}) {
+export function MaxAmountFilter({ maxAmount, setMaxAmount }) {
   return (
     <div className="MaxAmountFilter">
-      <p>
-        <strong>Max Amount<br/></strong>
-        <input type="number" value={maxAmount} onChange={e => setMaxAmount(Math.max(0, Number(e.target.value)))} placeholder="Max Amount"/>
-      </p>
+      <TextField
+        type="number"
+        value={maxAmount}
+        onChange={(e) => setMaxAmount(Math.max(0, Number(e.target.value)))}
+        label="Max Amount"
+      />
     </div>
   );
 }
