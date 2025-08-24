@@ -1,4 +1,4 @@
-import { DateRangePicker } from '@mui/x-date-pickers-pro';
+import { DateRangePicker } from '@mui/x-date-pickers';
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { Select, MenuItem, FormControl, InputLabel } from '@mui/material';

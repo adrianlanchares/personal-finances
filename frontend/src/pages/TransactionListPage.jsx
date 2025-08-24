@@ -167,6 +167,8 @@ function App() {
         if (account) params.append('account', account);
         if (cashflow) params.append('cashflow', cashflow);
         if (date) params.append('date', date);
+        if (startDate) params.append('startDate', startDate);
+        if (endDate) params.append('endDate', endDate);
         params.append('limit', TRANSACTIONS_PER_PAGE);
         params.append('skip', skip);
         
