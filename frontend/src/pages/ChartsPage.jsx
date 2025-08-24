@@ -5,7 +5,7 @@ import FilterListIcon from "@mui/icons-material/FilterList";
 /* Filter imports */
 import AccountFilter from "../components/filters/AccountFilter.jsx";
 import CashflowFilter from "../components/filters/CashflowFilter.jsx";
-import { DateFilter } from "../components/filters/DateFilters.jsx";
+import DateFilter from "../components/filters/DateFilter.jsx";
 
 /* Chart imports */
 import CategoryPieChart from "../components/charts/CategoryPieChart.jsx";

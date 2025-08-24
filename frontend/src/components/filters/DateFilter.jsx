@@ -1,6 +1,6 @@
-import { Select, MenuItem, FormControl, InputLabel } from '@mui/material';
+import { Select, MenuItem, FormControl, InputLabel } from "@mui/material";
 
-export function DateFilter({ date, setDate }) {
+export default function DateFilter({ date, setDate }) {
     return (
         <FormControl fullWidth>
             <InputLabel>Date</InputLabel>
@@ -15,6 +15,6 @@ export function DateFilter({ date, setDate }) {
                 <MenuItem value="month">Last Month</MenuItem>
                 <MenuItem value="week">Last Week</MenuItem>
             </Select>
-            </FormControl>
+        </FormControl>
     );
 }
