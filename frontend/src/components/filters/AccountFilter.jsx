@@ -1,6 +1,6 @@
 import { Select, MenuItem, FormControl, InputLabel } from "@mui/material";
 
-export function AccountFilter({ account, setAccount }) {
+export default function AccountFilter({ account, setAccount }) {
   return (
     <FormControl fullWidth>
       <InputLabel>Account</InputLabel>
