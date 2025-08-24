@@ -1,10 +1,14 @@
-export default function CategoryFilter({category, setCategory}) {
+import { TextField } from "@mui/material";
+
+export default function CategoryFilter({ category, setCategory }) {
   return (
     <div className="CategoryFilter">
-      <p>
-        <strong>Category<br/></strong>
-        <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} placeholder="Category"/>
-      </p>
+      <TextField
+        type="text"
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
+        label="Category"
+      />
     </div>
   );
 }
