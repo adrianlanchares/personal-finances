@@ -53,10 +53,12 @@ function Filters({ filters, setFilters }) {
     <div className = "filters-container">
       <h3 id="filters">Filters</h3>
       <div className="filters">
-        <MinAmountFilter amount={minAmount} setAmount={setMinAmount}/>
-        <MaxAmountFilter amount={maxAmount} setAmount={setMaxAmount}/>
+        <MinAmountFilter minAmount={minAmount} setMinAmount={setMinAmount} />
+        <MaxAmountFilter maxAmount={maxAmount} setMaxAmount={setMaxAmount}/>
         <DescriptionFilter description={description} setDescription={setDescription}/>
         <CategoryFilter category={category} setCategory={setCategory}/>
+      </div>
+      <div className="filters">
         <AccountFilter account={account} setAccount={setAccount}/>
         <CashflowFilter cashflow={cashflow} setCashflow={setCashflow}/>
         <DateFilter date={date} setDate={setDate}/>
