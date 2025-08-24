@@ -44,6 +44,3 @@ export default function CategoryPieChart({ transactions }) {
         </PieChart>
     );
 }
-
-// Usage somewhere in your app
-// <CategoryPieChart transactions={transactionList} />
