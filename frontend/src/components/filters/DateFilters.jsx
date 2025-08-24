@@ -1,6 +1,3 @@
-import { DateRangePicker } from '@mui/x-date-pickers';
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 
 export function DateFilter({ date, setDate }) {
@@ -19,20 +16,5 @@ export function DateFilter({ date, setDate }) {
                 <MenuItem value="week">Last Week</MenuItem>
             </Select>
             </FormControl>
-    );
-}
-
-export function DateRangeFilter({ startDate, endDate, setStartDate, setEndDate }) {
-    return (
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DateRangePicker
-                startDate={startDate}
-                endDate={endDate}
-                onChange={({ start, end }) => {
-                    setStartDate(start);
-                    setEndDate(end);
-                }}
-            />
-        </LocalizationProvider>
     );
 }

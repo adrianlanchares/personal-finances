@@ -10,7 +10,7 @@ import CategoryFilter from '../components/filters/CategoryFilter.jsx';
 import AccountFilter from '../components/filters/AccountFilter.jsx';
 import CashflowFilter from '../components/filters/CashflowFilter.jsx';
 import PageFilter from '../components/filters/PageFilter.jsx';
-import {DateFilter, DateRangeFilter} from '../components/filters/DateFilters.jsx';
+import { DateFilter } from '../components/filters/DateFilters.jsx';
 
 const INITIAL_PAGE = 1;
 const TRANSACTIONS_PER_PAGE = 10;
@@ -47,8 +47,8 @@ function TransactionListPage({ transactionList, currentPage, setCurrentPage, fil
 }
 
 function Filters({ filters, setFilters }) {
-  const {minAmount, maxAmount, description, category, account, cashflow, date, startDate, endDate} = filters;
-  const {setMinAmount, setMaxAmount, setDescription, setCategory, setAccount, setCashflow, setDate, setStartDate, setEndDate} = setFilters;
+  const {minAmount, maxAmount, description, category, account, cashflow, date} = filters;
+  const {setMinAmount, setMaxAmount, setDescription, setCategory, setAccount, setCashflow, setDate} = setFilters;
   return (<>
     <div className = "filters-container">
       <h3 id="filters">Filters</h3>
@@ -62,12 +62,6 @@ function Filters({ filters, setFilters }) {
         <AccountFilter account={account} setAccount={setAccount}/>
         <CashflowFilter cashflow={cashflow} setCashflow={setCashflow}/>
         <DateFilter date={date} setDate={setDate}/>
-        <DateRangeFilter 
-          startDate={startDate} 
-          endDate={endDate} 
-          setStartDate={setStartDate}  
-          setEndDate={setEndDate}
-        />
       </div>
     </div>
   </>);
@@ -127,8 +121,6 @@ function App() {
   const [account, setAccount] = useState('');
   const [cashflow, setCashflow] = useState('');
   const [date, setDate] = useState('');
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
 
   const filters = {
     minAmount: minAmount,
@@ -137,9 +129,7 @@ function App() {
     category: category,
     account: account,
     cashflow: cashflow,
-    date: date,
-    startDate: startDate,
-    endDate: endDate
+    date: date
   }
   const setFilters = {
     setMinAmount: setMinAmount,
@@ -148,9 +138,7 @@ function App() {
     setCategory: setCategory,
     setAccount: setAccount,
     setCashflow: setCashflow,
-    setDate: setDate,
-    setStartDate: setStartDate,
-    setEndDate: setEndDate
+    setDate: setDate
   }
 
   useEffect(() => {
@@ -167,8 +155,6 @@ function App() {
         if (account) params.append('account', account);
         if (cashflow) params.append('cashflow', cashflow);
         if (date) params.append('date', date);
-        if (startDate) params.append('startDate', startDate);
-        if (endDate) params.append('endDate', endDate);
         params.append('limit', TRANSACTIONS_PER_PAGE);
         params.append('skip', skip);
         
@@ -193,7 +179,7 @@ function App() {
     };
 
     fetchTransactions();
-  }, [currentPage, minAmount, maxAmount, description, category, account, cashflow, date, startDate, endDate]);
+  }, [currentPage, minAmount, maxAmount, description, category, account, cashflow, date]);
 
   return (
       <TransactionListPage
