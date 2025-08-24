@@ -49,7 +49,11 @@ function Filters({ filters, setFilters }) {
                         cashflow={cashflow}
                         setCashflow={setCashflow}
                     />
-                    <DateFilter date={date} setDate={setDate} />
+                    <DateFilter
+                        date={date}
+                        setDate={setDate}
+                        defaultValue="month"
+                    />
                 </div>
             </div>
         </>
