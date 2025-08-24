@@ -1,11 +1,11 @@
 import { Select, MenuItem, FormControl, InputLabel } from "@mui/material";
 
-export default function DateFilter({ date, setDate }) {
+export default function DateFilter({ date, setDate, defaultValue = "all" }) {
     return (
         <FormControl fullWidth>
             <InputLabel>Date</InputLabel>
             <Select
-                defaultValue="all"
+                defaultValue={defaultValue}
                 value={date}
                 label="Date"
                 onChange={(e) => setDate(e.target.value)}
