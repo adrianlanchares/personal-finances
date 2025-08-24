@@ -29,7 +29,9 @@ function ChartsPage({ transactionList, filters, setFilters }) {
             {showFilters && (
                 <Filters filters={filters} setFilters={setFilters} />
             )}
-            <CategoryPieChart transactions={transactionList} />
+            <div className="charts">
+                <CategoryPieChart transactions={transactionList} />
+            </div>
         </div>
     );
 }
@@ -41,9 +43,14 @@ function Filters({ filters, setFilters }) {
         <>
             <div className="filters-container">
                 <h3 id="filters">Filters</h3>
-                <AccountFilter account={account} setAccount={setAccount} />
-                <CashflowFilter cashflow={cashflow} setCashflow={setCashflow} />
-                <DateFilter date={date} setDate={setDate} />
+                <div className="filters">
+                    <AccountFilter account={account} setAccount={setAccount} />
+                    <CashflowFilter
+                        cashflow={cashflow}
+                        setCashflow={setCashflow}
+                    />
+                    <DateFilter date={date} setDate={setDate} />
+                </div>
             </div>
         </>
     );
