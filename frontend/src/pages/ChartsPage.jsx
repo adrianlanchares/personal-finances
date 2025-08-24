@@ -9,6 +9,8 @@ import DateFilter from "../components/filters/DateFilter.jsx";
 
 /* Chart imports */
 import CategoryPieChart from "../components/charts/CategoryPieChart.jsx";
+import TransactionsLineChart from "../components/charts/TransactionsLineChart.jsx";
+import AhorrosLineChart from "../components/charts/AhorrosLineChart.jsx";
 
 function ChartsPage({ transactionList, filters, setFilters }) {
     const [showFilters, setShowFilters] = useState(false);
@@ -31,6 +33,8 @@ function ChartsPage({ transactionList, filters, setFilters }) {
             )}
             <div className="charts">
                 <CategoryPieChart transactions={transactionList} />
+                <TransactionsLineChart transactions={transactionList} />
+                <AhorrosLineChart transactions={transactionList} />
             </div>
         </div>
     );
