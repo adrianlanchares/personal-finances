@@ -179,7 +179,7 @@ function App() {
     };
 
     fetchTransactions();
-  }, [currentPage, minAmount, maxAmount, description, category, account, cashflow]);
+  }, [currentPage, minAmount, maxAmount, description, category, account, cashflow, date]);
 
   return (
       <TransactionListPage
