@@ -1,17 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { redirect, createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+
 import App from './App.jsx'
 import ChartsPage from './pages/ChartsPage.jsx'
 import TransactionListPage from './pages/TransactionListPage.jsx'
 import TransactionDetailsPage from './pages/TransactionDetailsPage.jsx'
 import ErrorPage from './pages/ErrorPage.jsx'
+
 import './styles/index.css'
-import { redirect, createBrowserRouter, RouterProvider } from "react-router-dom";
+
 
 const router = createBrowserRouter([{
   path: "/",
   element: <App/>,
-  children: [{
+  children: [
+  {
+    index: true,
+    element: <Navigate to="/charts" replace />
+  },
+  {
     path: "charts",
     element: <ChartsPage/>,
   }, {
