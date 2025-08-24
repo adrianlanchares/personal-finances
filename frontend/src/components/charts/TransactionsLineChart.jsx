@@ -13,7 +13,9 @@ import {
 export default function TransactionsLineChart({ transactions }) {
     const data = useMemo(() => {
         // Filter out "ahorros" and sort by date
-        const filtered = transactions.filter((t) => t.account !== "ahorros");
+        const filtered = transactions
+            .filter((t) => t.account !== "ahorros")
+            .sort((a, b) => new Date(a.datetime) - new Date(b.datetime));
 
         let runningTotal = 0;
         return filtered.map((t) => {
