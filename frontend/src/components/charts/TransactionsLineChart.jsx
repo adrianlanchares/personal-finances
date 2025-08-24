@@ -17,7 +17,8 @@ export default function TransactionsLineChart({ transactions }) {
 
         let runningTotal = 0;
         return filtered.map((t) => {
-            runningTotal += Number(t.amount);
+            const multiplier = t.cashflow === "income" ? 1 : -1;
+            runningTotal += multiplier * Number(t.amount);
             return {
                 date: new Date(t.datetime).toISOString().split("T")[0], // x-axis
                 value: Math.round(runningTotal * 100) / 100, // y-axis (cumulative)
