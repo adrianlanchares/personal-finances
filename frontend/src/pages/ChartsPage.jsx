@@ -64,7 +64,7 @@ export default function App() {
     const [transactionList, setTransactionList] = useState([]);
     const [account, setAccount] = useState("");
     const [cashflow, setCashflow] = useState("");
-    const [date, setDate] = useState("");
+    const [date, setDate] = useState("month");
 
     const filters = {
         account: account,

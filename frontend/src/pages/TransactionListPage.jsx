@@ -172,7 +172,7 @@ export default function App() {
     const [category, setCategory] = useState("");
     const [account, setAccount] = useState("");
     const [cashflow, setCashflow] = useState("");
-    const [date, setDate] = useState("");
+    const [date, setDate] = useState("all");
 
     const filters = {
         minAmount: minAmount,
