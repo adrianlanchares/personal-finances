@@ -198,7 +198,7 @@ export default function App() {
         const fetchTransactions = async () => {
             try {
                 // Content type application json
-                const url = new URL(`http://10.8.0.1:8000/transactions/`);
+                const url = new URL(`http://100.64.192.35:8000/transactions/`);
                 const params = new URLSearchParams();
                 if (minAmount) params.append("minAmount", minAmount);
                 if (maxAmount) params.append("maxAmount", maxAmount);

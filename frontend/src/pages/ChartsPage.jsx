@@ -84,7 +84,7 @@ export default function App() {
     useEffect(() => {
         const fetchTransactions = async () => {
             try {
-                const url = new URL(`http://10.8.0.1:8000/transactions/`);
+                const url = new URL(`http://100.64.192.35:8000/transactions/`);
                 const params = new URLSearchParams();
                 if (account) params.append("account", account);
                 if (cashflow) params.append("cashflow", cashflow);

@@ -8,7 +8,7 @@ export default function Header() {
     useEffect(() => {
         const fetchBalances = async () => {
             const response = await fetch(
-                "http://10.8.0.1:8000/transactions/balance/"
+                "http://100.64.192.35:8000/transactions/balance/"
             );
             const data = await response.json();
             setBalances(data);
